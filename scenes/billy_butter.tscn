@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://ub3i5fwy8m34"]
+
+[ext_resource type="Texture2D" uid="uid://cwxu7n81qys7" path="res://assets/characters/Billy Butter/Billy Butter.png" id="1_sha52"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f7d4v"]
+atlas = ExtResource("1_sha52")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vs1u6"]
+atlas = ExtResource("1_sha52")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1yapk"]
+atlas = ExtResource("1_sha52")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1p2nm"]
+atlas = ExtResource("1_sha52")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fy5ot"]
+atlas = ExtResource("1_sha52")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2fj4a"]
+atlas = ExtResource("1_sha52")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vc7d2"]
+atlas = ExtResource("1_sha52")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7c4cw"]
+atlas = ExtResource("1_sha52")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ut2n"]
+atlas = ExtResource("1_sha52")
+region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7o0as"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f7d4v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vs1u6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1yapk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1p2nm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fy5ot")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2fj4a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vc7d2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7c4cw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ut2n")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 6.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7o0as"]
+size = Vector2(11, 13)
+
+[node name="Billy Butter" type="CharacterBody2D" unique_id=2109336059]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1413144941]
+sprite_frames = SubResource("SpriteFrames_7o0as")
+animation = &"idle"
+frame_progress = 0.8791622
+
+[node name="Hitbox" type="CollisionShape2D" parent="." unique_id=50655611]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_7o0as")

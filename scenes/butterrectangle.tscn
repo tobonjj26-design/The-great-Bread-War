@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://br6ikhxdgsijy"]
+
+[ext_resource type="Script" uid="uid://uri443jwilki" path="res://scenes/butterrectangle.gd" id="1_kvxlw"]
+[ext_resource type="Texture2D" uid="uid://b7ijxfi0wsbml" path="res://assets/Minions/Butter Rectangle.png" id="1_s8fqt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kvxlw"]
+atlas = ExtResource("1_s8fqt")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7o0as"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kvxlw")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7o0as"]
+size = Vector2(10, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ka5s"]
+size = Vector2(10, 6)
+
+[node name="Butterrectangle" type="CharacterBody2D" unique_id=457483213]
+script = ExtResource("1_kvxlw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1355571218]
+sprite_frames = SubResource("SpriteFrames_7o0as")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1461073356]
+shape = SubResource("RectangleShape2D_7o0as")
+
+[node name="WallRayCast" type="RayCast2D" parent="." unique_id=1395560714]
+target_position = Vector2(12, 0)
+
+[node name="FloorRayCast" type="RayCast2D" parent="." unique_id=1102434028]
+target_position = Vector2(7, 4)
+
+[node name="HurtArea" type="Area2D" parent="." unique_id=2086012285]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtArea" unique_id=204504711]
+shape = SubResource("RectangleShape2D_1ka5s")
+
+[connection signal="body_entered" from="HurtArea" to="." method="_on_hurt_area_2_body_entered"]

@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://bhgmctnv042nj"]
+
+[ext_resource type="Texture2D" uid="uid://26d6u8ptav0o" path="res://assets/characters/PB and J/PB and J.png" id="1_ta6jv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kk8wb"]
+atlas = ExtResource("1_ta6jv")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uf2uo"]
+atlas = ExtResource("1_ta6jv")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7o0as"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kk8wb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uf2uo")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 3.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7o0as"]
+size = Vector2(16, 13)
+
+[node name="PB and J" type="CharacterBody2D" unique_id=1394725764]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=548240671]
+sprite_frames = SubResource("SpriteFrames_7o0as")
+animation = &"idle"
+frame_progress = 0.124467045
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1501983329]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_7o0as")

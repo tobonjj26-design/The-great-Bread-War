@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://bxd23j6qcctrm"]
+
+[ext_resource type="Texture2D" uid="uid://c5pul8au2hn0p" path="res://assets/characters/Bob the Bread/Bread.png" id="1_c3ob8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v7vd7"]
+atlas = ExtResource("1_c3ob8")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gvii0"]
+atlas = ExtResource("1_c3ob8")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_16w2e"]
+atlas = ExtResource("1_c3ob8")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2au0d"]
+atlas = ExtResource("1_c3ob8")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8giga"]
+atlas = ExtResource("1_c3ob8")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vkv1u"]
+atlas = ExtResource("1_c3ob8")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_621pj"]
+atlas = ExtResource("1_c3ob8")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8gd7a"]
+atlas = ExtResource("1_c3ob8")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7o0as"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v7vd7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gvii0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_16w2e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2au0d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8giga")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vkv1u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_621pj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8gd7a")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 9.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7o0as"]
+size = Vector2(14, 12)
+
+[node name="Bob the Bread" type="CharacterBody2D" unique_id=1475175376]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=140008700]
+sprite_frames = SubResource("SpriteFrames_7o0as")
+animation = &"idle"
+frame_progress = 0.24362276
+
+[node name="Hitbox" type="CollisionShape2D" parent="." unique_id=1405975659]
+shape = SubResource("RectangleShape2D_7o0as")
