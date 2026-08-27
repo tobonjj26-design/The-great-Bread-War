@@ -37,3 +37,8 @@ func has_floor_ahead() -> bool:
 	var local_pos = tilemap.to_local(check_pos)
 	var map_pos = tilemap.local_to_map(local_pos)
 	return tilemap.get_cell_source_id(map_pos) != -1
+
+func _on_hurt_area_2_body_entered(body: Node2D) -> void:
+	print("TOCÓ: ", body.name)
+	if body.name == "Jammy":
+		body.queue_free()

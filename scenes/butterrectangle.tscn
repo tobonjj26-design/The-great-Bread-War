@@ -40,9 +40,9 @@ target_position = Vector2(12, 0)
 [node name="FloorRayCast" type="RayCast2D" parent="." unique_id=1102434028]
 target_position = Vector2(7, 4)
 
-[node name="HurtArea" type="Area2D" parent="." unique_id=2086012285]
+[node name="HurtArea2" type="Area2D" parent="." unique_id=2086012285]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtArea" unique_id=204504711]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtArea2" unique_id=204504711]
 shape = SubResource("RectangleShape2D_1ka5s")
 
-[connection signal="body_entered" from="HurtArea" to="." method="_on_hurt_area_2_body_entered"]
+[connection signal="body_entered" from="HurtArea2" to="." method="_on_hurt_area_2_body_entered"]
