@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://dtoonodca3jv7"]
+
+[ext_resource type="Script" uid="uid://cwp33bpkgq4gu" path="res://scenes/knife.gd" id="1_syuqf"]
+[ext_resource type="Texture2D" uid="uid://b10lklavmjwq2" path="res://assets/obstacles/Knife.png" id="1_ufhdc"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7o0as"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_syuqf"]
+atlas = ExtResource("1_ufhdc")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_amocf"]
+atlas = ExtResource("1_ufhdc")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rhlpq"]
+atlas = ExtResource("1_ufhdc")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mwwuh"]
+atlas = ExtResource("1_ufhdc")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5w0et"]
+atlas = ExtResource("1_ufhdc")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7o0as"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_syuqf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_amocf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rhlpq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mwwuh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5w0et")
+}],
+"loop": 1,
+"name": &"attack",
+"speed": 14.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7o0as"]
+size = Vector2(9, 11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k5a27"]
+size = Vector2(7, 8)
+
+[node name="Knife" type="AnimatableBody2D" unique_id=1470817938]
+physics_material_override = SubResource("PhysicsMaterial_7o0as")
+script = ExtResource("1_syuqf")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1787430266]
+sprite_frames = SubResource("SpriteFrames_7o0as")
+animation = &"attack"
+autoplay = "attack"
+frame_progress = 0.7623146
+
+[node name="HurtArea" type="Area2D" parent="." unique_id=1726755166]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtArea" unique_id=1153894725]
+position = Vector2(-2.5, 0.5)
+shape = SubResource("RectangleShape2D_7o0as")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=582234819]
+position = Vector2(-2.5, 0)
+shape = SubResource("RectangleShape2D_k5a27")

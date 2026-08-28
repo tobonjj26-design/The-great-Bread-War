@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://b4n6kgfb1gfja"]
+
+[ext_resource type="Script" uid="uid://bjpi1uvwuuq5d" path="res://scenes/spoon.gd" id="1_cax38"]
+[ext_resource type="Texture2D" uid="uid://by0yc7i260b0h" path="res://assets/obstacles/Spoon.png" id="1_l12hh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cax38"]
+atlas = ExtResource("1_l12hh")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r8mox"]
+atlas = ExtResource("1_l12hh")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r8ydw"]
+atlas = ExtResource("1_l12hh")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fyayl"]
+atlas = ExtResource("1_l12hh")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a0xwa"]
+atlas = ExtResource("1_l12hh")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7o0as"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cax38")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r8mox")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r8ydw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fyayl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a0xwa")
+}],
+"loop": 1,
+"name": &"attack",
+"speed": 24.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gee14"]
+size = Vector2(9, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ka5s"]
+size = Vector2(7, 12)
+
+[node name="Spoon" type="AnimatableBody2D" unique_id=1623659225]
+script = ExtResource("1_cax38")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1832835531]
+sprite_frames = SubResource("SpriteFrames_7o0as")
+animation = &"attack"
+autoplay = "attack"
+frame_progress = 0.57519084
+
+[node name="HurtArea" type="Area2D" parent="." unique_id=1721717925]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtArea" unique_id=1947262050]
+position = Vector2(-0.5, 1.5)
+shape = SubResource("RectangleShape2D_gee14")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1678466972]
+position = Vector2(-0.5, 2)
+shape = SubResource("RectangleShape2D_1ka5s")
+
+[connection signal="body_entered" from="HurtArea" to="." method="_on_hurt_area_body_entered"]

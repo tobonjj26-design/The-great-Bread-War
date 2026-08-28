@@ -1,10 +1,12 @@
 [gd_scene format=4 uid="uid://caho86ycnnnhd"]
 
 [ext_resource type="Script" uid="uid://b05mo5csjs046" path="res://scripts/jammy.gd" id="1_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://b4n6kgfb1gfja" path="res://scenes/spoon.tscn" id="1_p57ef"]
 [ext_resource type="Texture2D" uid="uid://dkpeawpw4tdu0" path="res://assets/characters/Jammy/Jammyidle.png" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://bj4m7m8dtwgpk" path="res://assets/characters/Jammy/Jammy run.png" id="2_yqjtg"]
 [ext_resource type="Texture2D" uid="uid://st0f54wnaopu" path="res://assets/Block Design/Block Design.png" id="4_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://br6ikhxdgsijy" path="res://scenes/butterrectangle.tscn" id="5_iywne"]
+[ext_resource type="PackedScene" uid="uid://dtoonodca3jv7" path="res://scenes/knife.tscn" id="7_u5sy4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yqjtg"]
 atlas = ExtResource("1_uwrxv")
@@ -111,7 +113,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k5a27"]
-size = Vector2(11, 12)
+size = Vector2(7, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7o0as"]
+size = Vector2(11, 2)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iywne"]
 texture = ExtResource("4_lbhrr")
@@ -137,8 +142,6 @@ position = Vector2(-10, 3)
 
 [node name="Jammy" type="CharacterBody2D" parent="." unique_id=1310199191]
 collision_layer = 2
-collision_mask = 2
-collision_priority = 2.0
 script = ExtResource("1_lnu2h")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Jammy" unique_id=460006229]
@@ -156,9 +159,43 @@ zoom = Vector2(10, 10)
 position_smoothing_speed = 10.0
 rotation_smoothing_enabled = true
 
+[node name="Hitbox2" type="CollisionShape2D" parent="Jammy" unique_id=1422785897]
+position = Vector2(-0.5, 1)
+shape = SubResource("RectangleShape2D_7o0as")
+
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=38877767]
-tile_map_data = PackedByteArray("AAD//wEAAAAAAAAAAAAAAAEAAAAAAAAAAAABAAEAAAAAAAAAAAACAAEAAAAAAAAAAAADAAEAAAAAAAAAAAD+/wEAAAABAAAAAAAFAAEAAAABAAAAABAEAAEAAAAAAAAAAAD+/wIAAAABAAAAAGAFAAIAAAABAAAAAHAEAAIAAAAAAAAAACADAAIAAAAAAAAAACACAAIAAAAAAAAAACABAAIAAAAAAAAAACAAAAIAAAAAAAAAACD//wIAAAAAAAAAACAHAAAAAAABAAAAAAAIAAAAAAABAAAAABAIAAIAAAABAAEAACAHAAEAAAABAAAAAGAIAAEAAAAAAAAAAFA=")
+tile_map_data = PackedByteArray("AAD//wEAAAAAAAAAAAAAAAEAAAAAAAAAAAABAAEAAAAAAAAAAAACAAEAAAAAAAAAAAADAAEAAAAAAAAAAAD+/wEAAAABAAAAAAAFAAEAAAABAAAAABAEAAEAAAAAAAAAAAD+/wIAAAABAAAAAGAFAAIAAAABAAAAAHAEAAIAAAAAAAAAACADAAIAAAAAAAAAACACAAIAAAAAAAAAACABAAIAAAAAAAAAACAAAAIAAAAAAAAAACD//wIAAAAAAAAAACAHAAAAAAABAAAAAAAIAAAAAAABAAAAABAIAAIAAAABAAEAACAHAAEAAAABAAAAAGAIAAEAAAAAAAAAAFALAAEAAAABAAEAAAALAAIAAAABAAAAAGAMAAIAAAAAAAIAAGANAAIAAAAAAAIAAGAOAAIAAAAAAAIAAGAPAAIAAAAAAAIAAGAQAAIAAAAAAAIAAGARAAIAAAAAAAIAAGASAAIAAAAAAAIAAGATAAIAAAABAAAAADATAAEAAAAAAAIAAAATAAAAAAAAAAIAAAATAP7/AAABAAEAAAATAP//AAAAAAAAAGAUAP//AAAAAAIAAFAVAP//AAAAAAIAAFAWAP//AAAAAAIAAFAXAP//AAAAAAIAAFAYAP//AAAAAAAAACAYAP7/AAAAAAIAAAAYAP3/AAABAAEAAAAZAP//AAAAAAIAAGAaAP//AAAAAAIAAGAbAP//AAAAAAIAAGAcAP//AAAAAAIAAGAdAP//AAAAAAIAAGAeAP7/AAAAAAIAAAAeAP3/AAABAAEAAAAeAP//AAAAAAAAACA=")
 tile_set = SubResource("TileSet_7o0as")
 
-[node name="Butterrectangle" parent="." unique_id=457483213 instance=ExtResource("5_iywne")]
+[node name="Spoons" type="Node2D" parent="." unique_id=866486539]
+
+[node name="Spoon2" parent="Spoons" unique_id=699023293 instance=ExtResource("1_p57ef")]
+position = Vector2(206, 24)
+
+[node name="Spoon" parent="Spoons" unique_id=1623659225 instance=ExtResource("1_p57ef")]
+position = Vector2(197, 24)
+
+[node name="Spoon3" parent="Spoons" unique_id=1980972134 instance=ExtResource("1_p57ef")]
+position = Vector2(215, 24)
+
+[node name="Spoon4" parent="Spoons" unique_id=1706399455 instance=ExtResource("1_p57ef")]
+position = Vector2(224, 24)
+
+[node name="Knifes" type="Node2D" parent="." unique_id=1741239646]
+
+[node name="Knife" parent="Knifes" unique_id=1470817938 instance=ExtResource("7_u5sy4")]
+position = Vector2(253, 28)
+
+[node name="Knife2" parent="Knifes" unique_id=287056808 instance=ExtResource("7_u5sy4")]
+position = Vector2(279, 28)
+
+[node name="Knife3" parent="Knifes" unique_id=1586295872 instance=ExtResource("7_u5sy4")]
+position = Vector2(302, 28)
+
+[node name="Butter enemies" type="Node2D" parent="." unique_id=1210474571]
+
+[node name="Butterrectangle" parent="Butter enemies" unique_id=457483213 instance=ExtResource("5_iywne")]
 position = Vector2(138, -4)
+
+[node name="Butterrectangle2" parent="Butter enemies" unique_id=2068246970 instance=ExtResource("5_iywne")]
+position = Vector2(325, -19)

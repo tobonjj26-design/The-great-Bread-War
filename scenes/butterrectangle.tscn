@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://br6ikhxdgsijy"]
 
-[ext_resource type="Script" uid="uid://uri443jwilki" path="res://scenes/butterrectangle.gd" id="1_kvxlw"]
+[ext_resource type="Script" uid="uid://uri443jwilki" path="res://scripts/butterrectangle.gd" id="1_kvxlw"]
 [ext_resource type="Texture2D" uid="uid://b7ijxfi0wsbml" path="res://assets/Minions/Butter Rectangle.png" id="1_s8fqt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kvxlw"]
@@ -37,12 +37,12 @@ shape = SubResource("RectangleShape2D_7o0as")
 
 [node name="WallRayCast" type="RayCast2D" parent="." unique_id=1395560714]
 target_position = Vector2(12, 0)
-collision_mask = 2
 
 [node name="FloorRayCast" type="RayCast2D" parent="." unique_id=1102434028]
 target_position = Vector2(7, 4)
 
 [node name="HurtArea" type="Area2D" parent="." unique_id=2086012285]
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtArea" unique_id=204504711]
 shape = SubResource("RectangleShape2D_rttn4")
