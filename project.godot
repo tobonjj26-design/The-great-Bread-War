@@ -27,6 +27,12 @@ super_jump={
 ]
 }
 
+[layer_names]
+
+2d_render/layer_1="world"
+2d_render/layer_2="player"
+2d_render/layer_3="enemy"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"

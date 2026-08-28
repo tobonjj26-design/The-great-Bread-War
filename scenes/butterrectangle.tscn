@@ -19,9 +19,9 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7o0as"]
-size = Vector2(10, 6)
+size = Vector2(8, 5)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ka5s"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rttn4"]
 size = Vector2(10, 6)
 
 [node name="Butterrectangle" type="CharacterBody2D" unique_id=457483213]
@@ -32,17 +32,19 @@ sprite_frames = SubResource("SpriteFrames_7o0as")
 animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1461073356]
+position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_7o0as")
 
 [node name="WallRayCast" type="RayCast2D" parent="." unique_id=1395560714]
 target_position = Vector2(12, 0)
+collision_mask = 2
 
 [node name="FloorRayCast" type="RayCast2D" parent="." unique_id=1102434028]
 target_position = Vector2(7, 4)
 
-[node name="HurtArea2" type="Area2D" parent="." unique_id=2086012285]
+[node name="HurtArea" type="Area2D" parent="." unique_id=2086012285]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtArea2" unique_id=204504711]
-shape = SubResource("RectangleShape2D_1ka5s")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtArea" unique_id=204504711]
+shape = SubResource("RectangleShape2D_rttn4")
 
-[connection signal="body_entered" from="HurtArea2" to="." method="_on_hurt_area_2_body_entered"]
+[connection signal="body_entered" from="HurtArea" to="." method="_on_hurt_area_2_body_entered"]

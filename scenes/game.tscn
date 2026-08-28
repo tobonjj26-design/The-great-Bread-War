@@ -136,6 +136,9 @@ sources/0 = SubResource("TileSetAtlasSource_iywne")
 position = Vector2(-10, 3)
 
 [node name="Jammy" type="CharacterBody2D" parent="." unique_id=1310199191]
+collision_layer = 2
+collision_mask = 2
+collision_priority = 2.0
 script = ExtResource("1_lnu2h")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Jammy" unique_id=460006229]
