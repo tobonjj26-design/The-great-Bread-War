@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b2abfo1ae4oqn"]
 
-[ext_resource type="Script" uid="uid://b5vuxooelk10x" path="res://fork.gd" id="1_6dqu0"]
+[ext_resource type="Script" uid="uid://b5vuxooelk10x" path="res://scripts/fork.gd" id="1_6dqu0"]
 [ext_resource type="Texture2D" uid="uid://c5qm2q0kyj6b1" path="res://assets/obstacles/Fork.png" id="2_x2bp2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dv354"]
