@@ -330,4 +330,4 @@ rotation = 3.1292305
 [node name="Billy Butters" type="Node2D" parent="." unique_id=2119235903]
 
 [node name="Billy Butter" parent="Billy Butters" unique_id=2109336059 instance=ExtResource("9_0tnpc")]
-position = Vector2(632, -119)
+position = Vector2(81, 9)

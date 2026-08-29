@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
-const CHARGE_SPEED = 70.0
+const CHARGE_SPEED = 52.5
+const PHASE2_CHARGE_SPEED = 65.625
 const CHARGE_RANGE_X = 60.0
 const CHARGE_RANGE_Y = 10.0
 
@@ -45,13 +46,16 @@ func _physics_process(delta: float) -> void:
 
 	# --- Entrar a FASE 2 (última vida): reproduce "transition" una sola vez ---
 	if health <= 1 and not entered_phase2:
+		print("Entrando a fase 2. health=", health, " reproduciendo transition")
 		entered_phase2 = true
 		sprite.play("transition")
 
 	if health <= 1 and enemy_to_summon != null:
 		summon_timer -= delta
 		if summon_timer <= 0:
+			print("Invocando enemigo...")
 			summon_enemy()
+			print("Enemigo invocado. Billy sigue vivo? health=", health)
 			summon_timer = SUMMON_INTERVAL
 
 	# --- Solo se mueve si detecta a Jammy cerca; si no, se queda quieto ---
@@ -63,7 +67,7 @@ func _physics_process(delta: float) -> void:
 			direction = sign(diff.x) if diff.x != 0 else direction
 
 	if is_charging:
-		velocity.x = direction * CHARGE_SPEED
+		velocity.x = direction * (PHASE2_CHARGE_SPEED if entered_phase2 else CHARGE_SPEED)
 	else:
 		velocity.x = 0
 
@@ -85,7 +89,7 @@ func _on_sprite_animation_finished() -> void:
 func summon_enemy() -> void:
 	var enemy = enemy_to_summon.instantiate()
 	get_parent().add_child(enemy)
-	enemy.global_position = global_position + Vector2(0, -20)
+	enemy.global_position = global_position + Vector2(20 * direction, 0)
 
 func _on_hurt_area_body_entered(body: Node2D) -> void:
 	if body.name != "Jammy":

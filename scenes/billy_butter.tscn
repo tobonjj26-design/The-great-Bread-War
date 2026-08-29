@@ -150,9 +150,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_dlnw5")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"transition",
-"speed": 10.0
+"speed": 4.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7o0as"]
@@ -167,9 +167,7 @@ enemy_to_summon = ExtResource("2_1yapk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1413144941]
 sprite_frames = SubResource("SpriteFrames_7o0as")
-animation = &"Run"
-autoplay = "idle"
-frame_progress = 0.21152854
+animation = &"Move"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=50655611]
 position = Vector2(-0.5, 0.5)
