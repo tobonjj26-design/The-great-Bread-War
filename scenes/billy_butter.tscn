@@ -4,10 +4,23 @@
 [ext_resource type="Texture2D" uid="uid://cwxu7n81qys7" path="res://assets/characters/Billy Butter/Billy Butter.png" id="1_sha52"]
 [ext_resource type="Script" uid="uid://dwmbt8xjjks2b" path="res://scenes/billy_butter.gd" id="1_vs1u6"]
 [ext_resource type="PackedScene" uid="uid://br6ikhxdgsijy" path="res://scenes/butterrectangle.tscn" id="2_1yapk"]
+[ext_resource type="Texture2D" uid="uid://dshp5rda2c4fq" path="res://assets/characters/Billy Butter/Run.png" id="4_1p2nm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2wmt4"]
 atlas = ExtResource("1_f7d4v")
 region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_47esg"]
+atlas = ExtResource("4_1p2nm")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xm5jj"]
+atlas = ExtResource("4_1p2nm")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b8fys"]
+atlas = ExtResource("4_1p2nm")
+region = Rect2(0, 16, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f7d4v"]
 atlas = ExtResource("1_sha52")
@@ -77,6 +90,20 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_47esg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xm5jj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b8fys")
+}],
+"loop": 1,
+"name": &"Run",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_f7d4v")
 }, {
 "duration": 1.0,
@@ -125,14 +152,14 @@ animations = [{
 }],
 "loop": 1,
 "name": &"transition",
-"speed": 8.0
+"speed": 10.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7o0as"]
-size = Vector2(11, 12)
+size = Vector2(11, 13)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ka5s"]
-size = Vector2(13, 12)
+size = Vector2(11, 12)
 
 [node name="Billy Butter" type="CharacterBody2D" unique_id=2109336059 groups=["enemy"]]
 script = ExtResource("1_vs1u6")
@@ -140,12 +167,12 @@ enemy_to_summon = ExtResource("2_1yapk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1413144941]
 sprite_frames = SubResource("SpriteFrames_7o0as")
-animation = &"idle"
+animation = &"Run"
 autoplay = "idle"
-frame_progress = 0.35567272
+frame_progress = 0.46545836
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=50655611]
-position = Vector2(-0.5, 1)
+position = Vector2(-0.5, 0.5)
 shape = SubResource("RectangleShape2D_7o0as")
 
 [node name="WallRayCast" type="RayCast2D" parent="." unique_id=1833818390]
