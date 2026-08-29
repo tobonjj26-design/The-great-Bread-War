@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://st0f54wnaopu" path="res://assets/Block Design/Block Design.png" id="4_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://br6ikhxdgsijy" path="res://scenes/butterrectangle.tscn" id="5_iywne"]
 [ext_resource type="PackedScene" uid="uid://dtoonodca3jv7" path="res://scenes/knife.tscn" id="7_u5sy4"]
+[ext_resource type="PackedScene" uid="uid://b2abfo1ae4oqn" path="res://scenes/fork.tscn" id="8_gee14"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yqjtg"]
 atlas = ExtResource("1_uwrxv")
@@ -164,7 +165,7 @@ position = Vector2(-0.5, 1)
 shape = SubResource("RectangleShape2D_7o0as")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=38877767]
-tile_map_data = PackedByteArray("AAD//wEAAAAAAAAAAAAAAAEAAAAAAAAAAAABAAEAAAAAAAAAAAACAAEAAAAAAAAAAAADAAEAAAAAAAAAAAD+/wEAAAABAAAAAAAFAAEAAAABAAAAABAEAAEAAAAAAAAAAAD+/wIAAAABAAAAAGAFAAIAAAABAAAAAHAEAAIAAAAAAAAAACADAAIAAAAAAAAAACACAAIAAAAAAAAAACABAAIAAAAAAAAAACAAAAIAAAAAAAAAACD//wIAAAAAAAAAACAHAAAAAAABAAAAAAAIAAAAAAABAAAAABAIAAIAAAABAAEAACAHAAEAAAABAAAAAGAIAAEAAAAAAAAAAFALAAEAAAABAAEAAAALAAIAAAABAAAAAGAMAAIAAAAAAAIAAGANAAIAAAAAAAIAAGAOAAIAAAAAAAIAAGAPAAIAAAAAAAIAAGAQAAIAAAAAAAIAAGARAAIAAAAAAAIAAGASAAIAAAAAAAIAAGATAAIAAAABAAAAADATAAEAAAAAAAIAAAATAAAAAAAAAAIAAAATAP7/AAABAAEAAAATAP//AAAAAAAAAGAUAP//AAAAAAIAAFAVAP//AAAAAAIAAFAWAP//AAAAAAIAAFAXAP//AAAAAAIAAFAYAP//AAAAAAAAACAYAP7/AAAAAAIAAAAYAP3/AAABAAEAAAAZAP//AAAAAAIAAGAaAP//AAAAAAIAAGAbAP//AAAAAAIAAGAcAP//AAAAAAIAAGAdAP//AAAAAAIAAGAeAP7/AAAAAAIAAAAeAP3/AAABAAEAAAAeAP//AAAAAAAAACA=")
+tile_map_data = PackedByteArray("AAD//wEAAAAAAAAAAAAAAAEAAAAAAAAAAAABAAEAAAAAAAAAAAACAAEAAAAAAAAAAAADAAEAAAAAAAAAAAD+/wEAAAABAAAAAAAFAAEAAAABAAAAABAEAAEAAAAAAAAAAAD+/wIAAAABAAAAAGAFAAIAAAABAAAAAHAEAAIAAAAAAAAAACADAAIAAAAAAAAAACACAAIAAAAAAAAAACABAAIAAAAAAAAAACAAAAIAAAAAAAAAACD//wIAAAAAAAAAACAHAAAAAAABAAAAAAAIAAAAAAABAAAAABAIAAIAAAABAAEAACAHAAEAAAABAAAAAGAIAAEAAAAAAAAAAFALAAEAAAABAAEAAAALAAIAAAABAAAAAGAMAAIAAAAAAAIAAGANAAIAAAAAAAIAAGAOAAIAAAAAAAIAAGAPAAIAAAAAAAIAAGAQAAIAAAAAAAIAAGARAAIAAAAAAAIAAGASAAIAAAAAAAIAAGATAAIAAAABAAAAADATAAEAAAAAAAIAAAATAAAAAAAAAAIAAAATAP7/AAABAAEAAAATAP//AAAAAAAAAGAUAP//AAAAAAIAAFAVAP//AAAAAAIAAFAWAP//AAAAAAIAAFAXAP//AAAAAAIAAFAYAP//AAAAAAAAACAYAP7/AAAAAAIAAAAYAP3/AAABAAEAAAAZAP//AAAAAAIAAGAaAP//AAAAAAIAAGAbAP//AAAAAAIAAGAcAP//AAAAAAIAAGAdAP//AAAAAAIAAGAeAP7/AAAAAAIAAAAeAP3/AAABAAEAAAAeAP//AAAAAAAAACAfAP//AAAAAAIAAGAiAP//AAABAAAAADAgAP//AAAAAAIAAGAhAP//AAAAAAIAAGAiAPr/AAAAAAEAAAAiAPv/AAAAAAEAAAAiAPz/AAAAAAEAAAAiAP3/AAAAAAEAAAAiAP7/AAAAAAEAAAAjAP7/AAABAAAAADAkAP3/AAABAAAAADAlAPz/AAABAAAAADAmAPv/AAABAAAAADAnAPr/AAABAAAAADAiAPn/AAABAAAAAAAjAPn/AAAAAAAAAAAkAPn/AAAAAAAAAAAlAPn/AAAAAAAAAAAmAPn/AAAAAAAAAAAnAPn/AAABAAAAAFAjAP3/AAABAAIAAAAjAPz/AAABAAIAAAAkAPz/AAABAAIAAAAkAPv/AAABAAIAAAAjAPv/AAABAAIAAAAjAPr/AAABAAIAAAAkAPr/AAABAAIAAAAlAPr/AAABAAIAAAAlAPv/AAABAAIAAAAmAPr/AAABAAIAAAD+//3/AAABAAEAAGD///3/AAAAAAIAAFAAAP3/AAAAAAIAAFABAP3/AAAAAAIAAFACAP3/AAABAAEAAFAHAPv/AAABAAEAAGAIAPv/AAABAAEAAHAMAPz/AAABAAEAAGANAPz/AAAAAAIAAFAOAPz/AAAAAAIAAFAPAPz/AAAAAAIAAFAQAPz/AAAAAAIAAFARAPz/AAABAAEAAHA=")
 tile_set = SubResource("TileSet_7o0as")
 
 [node name="Spoons" type="Node2D" parent="." unique_id=866486539]
@@ -181,15 +182,24 @@ position = Vector2(215, 24)
 [node name="Spoon4" parent="Spoons" unique_id=1706399455 instance=ExtResource("1_p57ef")]
 position = Vector2(224, 24)
 
+[node name="Spoon5" parent="Spoons" unique_id=527632234 instance=ExtResource("1_p57ef")]
+position = Vector2(501, -24)
+
+[node name="Spoon6" parent="Spoons" unique_id=1709151236 instance=ExtResource("1_p57ef")]
+position = Vector2(514, -24)
+
+[node name="Spoon7" parent="Spoons" unique_id=1622395091 instance=ExtResource("1_p57ef")]
+position = Vector2(540, -24)
+
+[node name="Spoon8" parent="Spoons" unique_id=1631788433 instance=ExtResource("1_p57ef")]
+position = Vector2(527, -24)
+
 [node name="Knifes" type="Node2D" parent="." unique_id=1741239646]
 
 [node name="Knife" parent="Knifes" unique_id=1470817938 instance=ExtResource("7_u5sy4")]
-position = Vector2(253, 28)
+position = Vector2(257, 28)
 
 [node name="Knife2" parent="Knifes" unique_id=287056808 instance=ExtResource("7_u5sy4")]
-position = Vector2(279, 28)
-
-[node name="Knife3" parent="Knifes" unique_id=1586295872 instance=ExtResource("7_u5sy4")]
 position = Vector2(302, 28)
 
 [node name="Butter enemies" type="Node2D" parent="." unique_id=1210474571]
@@ -199,3 +209,87 @@ position = Vector2(138, -4)
 
 [node name="Butterrectangle2" parent="Butter enemies" unique_id=2068246970 instance=ExtResource("5_iywne")]
 position = Vector2(325, -19)
+
+[node name="Butterrectangle3" parent="Butter enemies" unique_id=993301687 instance=ExtResource("5_iywne")]
+position = Vector2(405, -19)
+
+[node name="Butterrectangle4" parent="Butter enemies" unique_id=2000097288 instance=ExtResource("5_iywne")]
+position = Vector2(475, -19)
+
+[node name="Forks" type="Node2D" parent="." unique_id=1912763284]
+
+[node name="Fork" parent="Forks" unique_id=794788891 instance=ExtResource("8_gee14")]
+position = Vector2(-31, -25)
+rotation = 3.1292305
+
+[node name="Fork2" parent="Forks" unique_id=170115344 instance=ExtResource("8_gee14")]
+position = Vector2(-20.000004, -24.999996)
+rotation = 3.1292305
+
+[node name="Fork3" parent="Forks" unique_id=807314425 instance=ExtResource("8_gee14")]
+position = Vector2(-9, -24.999996)
+rotation = 3.1292305
+
+[node name="Fork4" parent="Forks" unique_id=1350428299 instance=ExtResource("8_gee14")]
+position = Vector2(2, -25)
+rotation = 3.1292305
+
+[node name="Fork5" parent="Forks" unique_id=663625185 instance=ExtResource("8_gee14")]
+position = Vector2(13, -24.999996)
+rotation = 3.1292305
+
+[node name="Fork6" parent="Forks" unique_id=1451787899 instance=ExtResource("8_gee14")]
+position = Vector2(24, -24.999996)
+rotation = 3.1292305
+
+[node name="Fork7" parent="Forks" unique_id=910682676 instance=ExtResource("8_gee14")]
+position = Vector2(35, -24.999996)
+rotation = 3.1292305
+
+[node name="Fork8" parent="Forks" unique_id=1426715355 instance=ExtResource("8_gee14")]
+position = Vector2(46, -25)
+rotation = 3.1292305
+
+[node name="Fork12" parent="Forks" unique_id=2108014401 instance=ExtResource("8_gee14")]
+position = Vector2(200, -41)
+rotation = 3.1292305
+
+[node name="Fork13" parent="Forks" unique_id=1321173706 instance=ExtResource("8_gee14")]
+position = Vector2(211, -40.999996)
+rotation = 3.1292305
+
+[node name="Fork14" parent="Forks" unique_id=1950321259 instance=ExtResource("8_gee14")]
+position = Vector2(222, -40.999996)
+rotation = 3.1292305
+
+[node name="Fork15" parent="Forks" unique_id=104803981 instance=ExtResource("8_gee14")]
+position = Vector2(233, -41)
+rotation = 3.1292305
+
+[node name="Fork16" parent="Forks" unique_id=690742732 instance=ExtResource("8_gee14")]
+position = Vector2(244, -40.999996)
+rotation = 3.1292305
+
+[node name="Fork17" parent="Forks" unique_id=999953055 instance=ExtResource("8_gee14")]
+position = Vector2(255, -40.999996)
+rotation = 3.1292305
+
+[node name="Fork18" parent="Forks" unique_id=325308752 instance=ExtResource("8_gee14")]
+position = Vector2(266, -40.999996)
+rotation = 3.1292305
+
+[node name="Fork19" parent="Forks" unique_id=1697313171 instance=ExtResource("8_gee14")]
+position = Vector2(277, -41)
+rotation = 3.1292305
+
+[node name="Fork9" parent="Forks" unique_id=136147849 instance=ExtResource("8_gee14")]
+position = Vector2(116, -56.999996)
+rotation = 3.1292305
+
+[node name="Fork10" parent="Forks" unique_id=451950742 instance=ExtResource("8_gee14")]
+position = Vector2(127, -56.999996)
+rotation = 3.1292305
+
+[node name="Fork11" parent="Forks" unique_id=1209338085 instance=ExtResource("8_gee14")]
+position = Vector2(138, -57)
+rotation = 3.1292305

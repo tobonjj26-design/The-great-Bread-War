@@ -41,3 +41,6 @@ func has_floor_ahead() -> bool:
 func _on_hurt_area_2_body_entered(body: Node2D) -> void:
 	if body.name == "Jammy":
 		get_tree().reload_current_scene()
+
+func stomp() -> void:
+	queue_free()

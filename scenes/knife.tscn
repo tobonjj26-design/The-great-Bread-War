@@ -62,7 +62,7 @@ script = ExtResource("1_syuqf")
 sprite_frames = SubResource("SpriteFrames_7o0as")
 animation = &"attack"
 autoplay = "attack"
-frame_progress = 0.7623146
+frame_progress = 0.23381364
 
 [node name="HurtArea" type="Area2D" parent="." unique_id=1726755166]
 collision_mask = 2
@@ -74,3 +74,5 @@ shape = SubResource("RectangleShape2D_7o0as")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=582234819]
 position = Vector2(-2.5, 0)
 shape = SubResource("RectangleShape2D_k5a27")
+
+[connection signal="body_entered" from="HurtArea" to="." method="_on_hurt_area_body_entered"]

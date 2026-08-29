@@ -22,7 +22,6 @@ var super_jump_cooldown_timer = 0.0
 func _physics_process(delta: float) -> void:
 	var gravity = get_gravity()
 
-	# --- Actualizar timers ---
 	if is_on_floor():
 		coyote_timer = COYOTE_TIME
 	else:
@@ -39,7 +38,6 @@ func _physics_process(delta: float) -> void:
 	else:
 		jump_buffer_timer -= delta
 
-	# --- Gravedad variable ---
 	if not is_on_floor():
 		if velocity.y < 0:
 			if Input.is_action_just_released("ui_accept") and not wants_super_jump:
@@ -49,7 +47,6 @@ func _physics_process(delta: float) -> void:
 		else:
 			velocity += gravity * FALL_GRAVITY_MULT * delta
 
-	# --- Salto (coyote time + jump buffer) ---
 	if jump_buffer_timer > 0 and coyote_timer > 0:
 		if wants_super_jump:
 			velocity.y = SUPER_JUMP_VELOCITY
@@ -60,7 +57,6 @@ func _physics_process(delta: float) -> void:
 		coyote_timer = 0
 		wants_super_jump = false
 
-	# --- Movimiento horizontal ---
 	var direction := Input.get_axis("ui_left", "ui_right")
 	if direction:
 		velocity.x = direction * SPEED
@@ -69,7 +65,14 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
-	# --- Animaciones ---
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		var collider = collision.get_collider()
+		if collider != null and collider.is_in_group("enemy") and collision.get_normal().y < -0.5:
+			if collider.has_method("stomp"):
+				collider.stomp()
+			velocity.y = JUMP_VELOCITY * 0.6
+
 	if direction != 0:
 		sprite.play("run")
 		sprite.flip_h = direction < 0

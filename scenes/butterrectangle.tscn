@@ -24,7 +24,7 @@ size = Vector2(8, 5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rttn4"]
 size = Vector2(10, 6)
 
-[node name="Butterrectangle" type="CharacterBody2D" unique_id=457483213]
+[node name="Butterrectangle" type="CharacterBody2D" unique_id=457483213 groups=["enemy"]]
 script = ExtResource("1_kvxlw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1355571218]
