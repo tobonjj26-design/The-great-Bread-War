@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://tbxjy6nkc13" path="res://assets/characters/Billy Butter/Transition.png" id="1_f7d4v"]
 [ext_resource type="Texture2D" uid="uid://cwxu7n81qys7" path="res://assets/characters/Billy Butter/Billy Butter.png" id="1_sha52"]
 [ext_resource type="Script" uid="uid://dwmbt8xjjks2b" path="res://scenes/billy_butter.gd" id="1_vs1u6"]
+[ext_resource type="PackedScene" uid="uid://br6ikhxdgsijy" path="res://scenes/butterrectangle.tscn" id="2_1yapk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2wmt4"]
 atlas = ExtResource("1_f7d4v")
@@ -135,6 +136,7 @@ size = Vector2(13, 12)
 
 [node name="Billy Butter" type="CharacterBody2D" unique_id=2109336059 groups=["enemy"]]
 script = ExtResource("1_vs1u6")
+enemy_to_summon = ExtResource("2_1yapk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1413144941]
 sprite_frames = SubResource("SpriteFrames_7o0as")
@@ -155,3 +157,5 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtArea" unique_id=1683368942]
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_1ka5s")
+
+[connection signal="body_entered" from="HurtArea" to="." method="_on_hurt_area_body_entered"]

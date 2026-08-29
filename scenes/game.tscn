@@ -142,7 +142,7 @@ sources/0 = SubResource("TileSetAtlasSource_iywne")
 [node name="Game" type="Node2D" unique_id=1335263438]
 position = Vector2(-10, 3)
 
-[node name="Jammy" type="CharacterBody2D" parent="." unique_id=1310199191]
+[node name="Jammy" type="CharacterBody2D" parent="." unique_id=1310199191 groups=["player"]]
 collision_layer = 2
 script = ExtResource("1_lnu2h")
 
@@ -209,7 +209,7 @@ position = Vector2(302, 28)
 position = Vector2(138, -4)
 
 [node name="Butterrectangle2" parent="Butter enemies" unique_id=2068246970 instance=ExtResource("5_iywne")]
-position = Vector2(325, -19)
+position = Vector2(278, -67)
 
 [node name="Butterrectangle3" parent="Butter enemies" unique_id=993301687 instance=ExtResource("5_iywne")]
 position = Vector2(405, -19)
@@ -330,4 +330,4 @@ rotation = 3.1292305
 [node name="Billy Butters" type="Node2D" parent="." unique_id=2119235903]
 
 [node name="Billy Butter" parent="Billy Butters" unique_id=2109336059 instance=ExtResource("9_0tnpc")]
-position = Vector2(594, -119)
+position = Vector2(351, -23)
