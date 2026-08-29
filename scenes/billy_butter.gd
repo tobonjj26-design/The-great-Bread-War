@@ -43,6 +43,7 @@ func _physics_process(delta: float) -> void:
 
 	var jammy = get_tree().get_first_node_in_group("player")
 
+	# --- Entrar a FASE 2 (última vida): reproduce "transition" una sola vez ---
 	if health <= 1 and not entered_phase2:
 		entered_phase2 = true
 		sprite.play("transition")
@@ -53,6 +54,7 @@ func _physics_process(delta: float) -> void:
 			summon_enemy()
 			summon_timer = SUMMON_INTERVAL
 
+	# --- Solo se mueve si detecta a Jammy cerca; si no, se queda quieto ---
 	is_charging = false
 	if jammy != null:
 		var diff = jammy.global_position - global_position
@@ -67,6 +69,7 @@ func _physics_process(delta: float) -> void:
 
 	sprite.flip_h = direction < 0
 
+	# --- Animaciones ---
 	if not entered_phase2:
 		if is_charging:
 			sprite.play("Run")
@@ -87,7 +90,7 @@ func summon_enemy() -> void:
 func _on_hurt_area_body_entered(body: Node2D) -> void:
 	if body.name != "Jammy":
 		return
-	if body.velocity.y > 0 and body.global_position.y < global_position.y - 8:
+	if body.global_position.y < global_position.y - 8:
 		return
 	get_tree().reload_current_scene()
 
