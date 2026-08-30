@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://tbxjy6nkc13" path="res://assets/characters/Billy Butter/Transition.png" id="1_f7d4v"]
 [ext_resource type="Texture2D" uid="uid://cwxu7n81qys7" path="res://assets/characters/Billy Butter/Billy Butter.png" id="1_sha52"]
-[ext_resource type="Script" uid="uid://dwmbt8xjjks2b" path="res://scenes/billy_butter.gd" id="1_vs1u6"]
+[ext_resource type="Script" uid="uid://dwmbt8xjjks2b" path="res://scripts/billy_butter.gd" id="1_vs1u6"]
 [ext_resource type="PackedScene" uid="uid://br6ikhxdgsijy" path="res://scenes/butterrectangle.tscn" id="2_1yapk"]
 [ext_resource type="Texture2D" uid="uid://dshp5rda2c4fq" path="res://assets/characters/Billy Butter/Run.png" id="4_1p2nm"]
 
