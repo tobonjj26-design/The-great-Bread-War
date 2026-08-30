@@ -4,6 +4,10 @@
 [ext_resource type="Script" uid="uid://dlunior3gjooo" path="res://scripts/butter_capitan.gd" id="1_2vv65"]
 [ext_resource type="Texture2D" uid="uid://57r3hkq7wcn8" path="res://assets/characters/Butter Capitan/Butter Capitan.png" id="2_2vv65"]
 
+[sub_resource type="PackedScene" id="PackedScene_dinhu"]
+
+[sub_resource type="PackedScene" id="PackedScene_kvuet"]
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_hkeyg"]
 atlas = ExtResource("1_0prl5")
 region = Rect2(0, 0, 16, 16)
@@ -68,7 +72,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_660rs")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"Summon",
 "speed": 5.0
 }]
@@ -81,19 +85,19 @@ size = Vector2(11, 15)
 
 [node name="Butter Capitan" type="AnimatableBody2D" unique_id=1718793327 groups=["enemy"]]
 script = ExtResource("1_2vv65")
-door_tile_positions = null
-facing_direction = null
+enemy_to_summon = SubResource("PackedScene_dinhu")
+phase2_enemy_to_summon = SubResource("PackedScene_kvuet")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=133860398]
 sprite_frames = SubResource("SpriteFrames_1ka5s")
-animation = &"Idle"
-frame_progress = 0.32413378
+animation = &"Summon"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=807870749]
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_7o0as")
 
 [node name="HurtArea" type="Area2D" parent="." unique_id=501736896]
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtArea" unique_id=1405840089]
 position = Vector2(-0.5, -0.5)

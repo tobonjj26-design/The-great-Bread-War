@@ -24,14 +24,9 @@ var summon_timer = SUMMON_INTERVAL_PHASE1
 func _ready() -> void:
 	sprite.animation_finished.connect(_on_sprite_animation_finished)
 	sprite.flip_h = facing_direction < 0
-	sprite.play("idle")
+	sprite.play("Idle")
 
 func _physics_process(delta: float) -> void:
-	if not is_on_floor():
-		velocity += get_gravity() * delta
-	velocity.x = 0
-	move_and_slide()
-
 	if invincible_timer > 0:
 		invincible_timer -= delta
 		sprite.modulate.a = 0.4 if fmod(invincible_timer, 0.2) < 0.1 else 1.0
@@ -39,18 +34,18 @@ func _physics_process(delta: float) -> void:
 		sprite.modulate.a = 1.0
 
 	# Mientras está reproduciendo la invocación, no cuenta el timer (evita solaparse)
-	if sprite.animation == "invocacion":
+	if sprite.animation == "Summon":
 		return
 
 	summon_timer -= delta
 	if summon_timer <= 0:
-		sprite.play("invocacion")
+		sprite.play("Summon")
 
 func _on_sprite_animation_finished() -> void:
-	if sprite.animation == "invocacion":
+	if sprite.animation == "Summon":
 		do_summon()
 		summon_timer = SUMMON_INTERVAL_PHASE2 if entered_phase2 else SUMMON_INTERVAL_PHASE1
-		sprite.play("idle")
+		sprite.play("Idle")
 
 func do_summon() -> void:
 	var scene_to_use = phase2_enemy_to_summon if entered_phase2 else enemy_to_summon
