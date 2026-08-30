@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends AnimatableBody2D
 
 const MAX_HEALTH = 5
 const HITS_TO_PHASE2 = 3

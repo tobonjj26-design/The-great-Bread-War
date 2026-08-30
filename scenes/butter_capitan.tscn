@@ -79,8 +79,10 @@ size = Vector2(11, 15)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ka5s"]
 size = Vector2(11, 15)
 
-[node name="Butter Capitan" type="AnimatableBody2D" unique_id=1718793327 groups=["player"]]
+[node name="Butter Capitan" type="AnimatableBody2D" unique_id=1718793327 groups=["enemy"]]
 script = ExtResource("1_2vv65")
+door_tile_positions = null
+facing_direction = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=133860398]
 sprite_frames = SubResource("SpriteFrames_1ka5s")
@@ -96,3 +98,5 @@ shape = SubResource("RectangleShape2D_7o0as")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtArea" unique_id=1405840089]
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_1ka5s")
+
+[connection signal="body_entered" from="HurtArea" to="." method="_on_hurt_area_body_entered"]
