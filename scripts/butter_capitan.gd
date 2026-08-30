@@ -7,6 +7,8 @@ const SUMMON_INTERVAL_PHASE1 = 3.0
 const SUMMON_INTERVAL_PHASE2 = 5.0
 
 const INVINCIBLE_TIME = 1.0
+const MAX_BUTTERRECTANGLES = 3
+const MAX_BILLY_BUTTERS = 1
 
 var health = MAX_HEALTH
 var entered_phase2 = false
@@ -15,7 +17,7 @@ var summon_timer = SUMMON_INTERVAL_PHASE1
 
 @export var enemy_to_summon: PackedScene       # Butterrectangle
 @export var phase2_enemy_to_summon: PackedScene # Billy Butter
-@export var door_tile_positions: Array[Vector2] = []  # posiciones (mundo) de las celdas de la puerta a borrar
+@export var door_tile_cells: Array[Vector2i] = []  # coordenadas de CELDA (columna, fila) de la puerta a borrar
 @export var facing_direction: int = 1           # 1 = mira a la derecha, -1 = mira a la izquierda
 
 @onready var sprite = $AnimatedSprite2D
@@ -48,10 +50,22 @@ func _on_sprite_animation_finished() -> void:
 		sprite.play("Idle")
 
 func do_summon() -> void:
-	var scene_to_use = phase2_enemy_to_summon if entered_phase2 else enemy_to_summon
-	if scene_to_use == null:
-		return
-	var enemy = scene_to_use.instantiate()
+	var enemy: Node
+	if entered_phase2:
+		if phase2_enemy_to_summon == null:
+			return
+		if get_tree().get_nodes_in_group("summoned_billy_butter").size() >= MAX_BILLY_BUTTERS:
+			return
+		enemy = phase2_enemy_to_summon.instantiate()
+		enemy.add_to_group("summoned_billy_butter")
+	else:
+		if enemy_to_summon == null:
+			return
+		if get_tree().get_nodes_in_group("summoned_butterrectangle").size() >= MAX_BUTTERRECTANGLES:
+			return
+		enemy = enemy_to_summon.instantiate()
+		enemy.add_to_group("summoned_butterrectangle")
+
 	get_parent().add_child(enemy)
 	enemy.global_position = global_position + Vector2(20 * facing_direction, 0)
 
@@ -70,10 +84,9 @@ func stomp() -> void:
 		queue_free()
 
 func open_door() -> void:
-	for world_pos in door_tile_positions:
-		var local_pos = tilemap.to_local(world_pos)
-		var map_pos = tilemap.local_to_map(local_pos)
-		tilemap.erase_cell(map_pos)
+	for cell in door_tile_cells:
+		print("Borrando celda: ", cell)
+		tilemap.erase_cell(cell)
 
 func _on_hurt_area_body_entered(body: Node2D) -> void:
 	if body.name != "Jammy":

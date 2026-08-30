@@ -85,7 +85,7 @@ size = Vector2(11, 15)
 script = ExtResource("1_2vv65")
 enemy_to_summon = ExtResource("2_o3yt5")
 phase2_enemy_to_summon = ExtResource("3_ln0l3")
-door_tile_positions = Array[Vector2]([Vector2(880, -128), Vector2(880, -144)])
+door_tile_cells = Array[Vector2i]([Vector2i(55, -8), Vector2i(55, -9)])
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=133860398]
 sprite_frames = SubResource("SpriteFrames_1ka5s")
