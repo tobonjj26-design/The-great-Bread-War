@@ -174,7 +174,7 @@ position = Vector2(-0.5, 0.5)
 shape = SubResource("RectangleShape2D_7o0as")
 
 [node name="WallRayCast" type="RayCast2D" parent="." unique_id=1833818390]
-target_position = Vector2(12, 0)
+target_position = Vector2(0, 0)
 
 [node name="HurtArea" type="Area2D" parent="." unique_id=1273815322]
 collision_mask = 2
