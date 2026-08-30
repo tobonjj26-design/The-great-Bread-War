@@ -1,6 +1,6 @@
 extends AnimatableBody2D
 
-const MAX_HEALTH = 5
+const MAX_HEALTH = 6
 const HITS_TO_PHASE2 = 3
 
 const SUMMON_INTERVAL_PHASE1 = 3.0
@@ -60,6 +60,7 @@ func stomp() -> void:
 		return
 	health -= 1
 	invincible_timer = INVINCIBLE_TIME
+	do_summon()
 
 	if health <= MAX_HEALTH - HITS_TO_PHASE2 and not entered_phase2:
 		entered_phase2 = true
