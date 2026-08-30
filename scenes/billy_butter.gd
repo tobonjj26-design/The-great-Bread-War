@@ -9,11 +9,12 @@ const MAX_HEALTH = 3
 const SUMMON_INTERVAL = 4.0
 
 const INVINCIBLE_TIME = 1.5
-const KNOCKBACK_SPEED = 90.0
-const KNOCKBACK_UP = -120.0
+const KNOCKBACK_SPEED = 40.0
+const KNOCKBACK_UP = -80.0
 const TURN_PAUSE_TIME = 0.3
 
 const FALL_RESCUE_DISTANCE = 150.0
+const RESCUE_FREEZE_TIME = 1.0
 
 # Límites del área del jefe: ajusta estos dos valores en el Inspector
 # a la posición X de la pared izquierda y derecha de tu arena, para que
@@ -30,6 +31,7 @@ var summon_timer = 0.0
 var entered_phase2 = false
 var turn_pause_timer = 0.0
 var last_safe_position = Vector2.ZERO
+var rescue_freeze_timer = 0.0
 
 @export var enemy_to_summon: PackedScene
 
@@ -51,6 +53,13 @@ func _physics_process(delta: float) -> void:
 	if global_position.y > last_safe_position.y + FALL_RESCUE_DISTANCE:
 		global_position = last_safe_position
 		velocity = Vector2.ZERO
+		rescue_freeze_timer = RESCUE_FREEZE_TIME
+		invincible_timer = max(invincible_timer, RESCUE_FREEZE_TIME)
+
+	if rescue_freeze_timer > 0:
+		rescue_freeze_timer -= delta
+		move_and_slide()
+		return
 
 	if invincible_timer > 0:
 		invincible_timer -= delta
