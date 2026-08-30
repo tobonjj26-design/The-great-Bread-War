@@ -13,6 +13,8 @@ const KNOCKBACK_SPEED = 90.0
 const KNOCKBACK_UP = -120.0
 const TURN_PAUSE_TIME = 0.3
 
+const FALL_RESCUE_DISTANCE = 150.0
+
 # Límites del área del jefe: ajusta estos dos valores en el Inspector
 # a la posición X de la pared izquierda y derecha de tu arena, para que
 # el knockback nunca lo empuje fuera de la plataforma.
@@ -27,6 +29,7 @@ var knockback_timer = 0.0
 var summon_timer = 0.0
 var entered_phase2 = false
 var turn_pause_timer = 0.0
+var last_safe_position = Vector2.ZERO
 
 @export var enemy_to_summon: PackedScene
 
@@ -36,10 +39,18 @@ var turn_pause_timer = 0.0
 
 func _ready() -> void:
 	sprite.animation_finished.connect(_on_sprite_animation_finished)
+	last_safe_position = global_position
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+	else:
+		last_safe_position = global_position
+
+	# --- Red de seguridad: si cae demasiado lejos de la última posición segura, lo devuelve ahí ---
+	if global_position.y > last_safe_position.y + FALL_RESCUE_DISTANCE:
+		global_position = last_safe_position
+		velocity = Vector2.ZERO
 
 	if invincible_timer > 0:
 		invincible_timer -= delta
@@ -84,10 +95,7 @@ func _physics_process(delta: float) -> void:
 	# --- Seguridad: si hay vacío o pared en la dirección hacia la que camina, se voltea sin importar a Jammy ---
 	wall_ray.target_position.x = 8 * direction
 	if is_charging and (wall_ray.is_colliding() or not has_floor_ahead()):
-		print("SEGURIDAD ACTIVADA: wall=", wall_ray.is_colliding(), " floor_ahead=", has_floor_ahead(), " pos=", global_position, " dir=", direction)
 		desired_direction = -direction
-	if not is_on_floor():
-		print("CAYENDO: pos=", global_position, " vel=", velocity, " is_charging=", is_charging)
 
 	# --- Pausa antes de voltear ---
 	if is_charging and desired_direction != direction and turn_pause_timer <= 0:
