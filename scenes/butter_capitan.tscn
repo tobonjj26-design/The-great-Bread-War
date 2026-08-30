@@ -3,10 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://beuqhdcbg8x3o" path="res://assets/characters/Butter Capitan/Butter Capitan Idle.png" id="1_0prl5"]
 [ext_resource type="Script" uid="uid://dlunior3gjooo" path="res://scripts/butter_capitan.gd" id="1_2vv65"]
 [ext_resource type="Texture2D" uid="uid://57r3hkq7wcn8" path="res://assets/characters/Butter Capitan/Butter Capitan.png" id="2_2vv65"]
-
-[sub_resource type="PackedScene" id="PackedScene_dinhu"]
-
-[sub_resource type="PackedScene" id="PackedScene_kvuet"]
+[ext_resource type="PackedScene" uid="uid://br6ikhxdgsijy" path="res://scenes/butterrectangle.tscn" id="2_o3yt5"]
+[ext_resource type="PackedScene" uid="uid://ub3i5fwy8m34" path="res://scenes/billy_butter.tscn" id="3_ln0l3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hkeyg"]
 atlas = ExtResource("1_0prl5")
@@ -85,8 +83,9 @@ size = Vector2(11, 15)
 
 [node name="Butter Capitan" type="AnimatableBody2D" unique_id=1718793327 groups=["enemy"]]
 script = ExtResource("1_2vv65")
-enemy_to_summon = SubResource("PackedScene_dinhu")
-phase2_enemy_to_summon = SubResource("PackedScene_kvuet")
+enemy_to_summon = ExtResource("2_o3yt5")
+phase2_enemy_to_summon = ExtResource("3_ln0l3")
+door_tile_positions = Array[Vector2]([Vector2(880, -128), Vector2(880, -144)])
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=133860398]
 sprite_frames = SubResource("SpriteFrames_1ka5s")
