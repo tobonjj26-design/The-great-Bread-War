@@ -83,10 +83,11 @@ func _physics_process(delta: float) -> void:
 
 	# --- Seguridad: si hay vacío o pared en la dirección hacia la que camina, se voltea sin importar a Jammy ---
 	wall_ray.target_position.x = 8 * direction
-	if is_charging:
-		print("charging dir=", direction, " wall=", wall_ray.is_colliding(), " floor_ahead=", has_floor_ahead(), " pos=", global_position)
 	if is_charging and (wall_ray.is_colliding() or not has_floor_ahead()):
+		print("SEGURIDAD ACTIVADA: wall=", wall_ray.is_colliding(), " floor_ahead=", has_floor_ahead(), " pos=", global_position, " dir=", direction)
 		desired_direction = -direction
+	if not is_on_floor():
+		print("CAYENDO: pos=", global_position, " vel=", velocity, " is_charging=", is_charging)
 
 	# --- Pausa antes de voltear ---
 	if is_charging and desired_direction != direction and turn_pause_timer <= 0:
