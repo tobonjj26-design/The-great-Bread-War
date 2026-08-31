@@ -23,6 +23,8 @@ func _physics_process(delta: float) -> void:
 
 	wall_ray.target_position.x = 8 * direction
 
+	print("on_floor=", is_on_floor(), " wall=", wall_ray.is_colliding(), " floor_ahead=", has_floor_ahead(), " pos=", global_position)
+
 	if wall_ray.is_colliding() or not has_floor_ahead():
 		direction *= -1
 		sprite.flip_h = direction < 0
