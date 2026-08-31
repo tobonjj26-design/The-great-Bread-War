@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bxd23j6qcctrm"]
 
 [ext_resource type="Texture2D" uid="uid://c5pul8au2hn0p" path="res://assets/characters/Bob the Bread/Bread.png" id="1_c3ob8"]
-[ext_resource type="Script" uid="uid://crwfw2oiqyq25" path="res://scenes/bob_the_bread.gd" id="1_v7vd7"]
+[ext_resource type="Script" uid="uid://crwfw2oiqyq25" path="res://scripts/bob_the_bread.gd" id="1_v7vd7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v7vd7"]
 atlas = ExtResource("1_c3ob8")
@@ -13,27 +13,7 @@ region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_16w2e"]
 atlas = ExtResource("1_c3ob8")
-region = Rect2(32, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2au0d"]
-atlas = ExtResource("1_c3ob8")
 region = Rect2(0, 16, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8giga"]
-atlas = ExtResource("1_c3ob8")
-region = Rect2(16, 16, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vkv1u"]
-atlas = ExtResource("1_c3ob8")
-region = Rect2(32, 16, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_621pj"]
-atlas = ExtResource("1_c3ob8")
-region = Rect2(0, 32, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8gd7a"]
-atlas = ExtResource("1_c3ob8")
-region = Rect2(16, 32, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7o0as"]
 animations = [{
@@ -46,49 +26,35 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_16w2e")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2au0d")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8giga")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vkv1u")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_621pj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8gd7a")
 }],
 "loop": 1,
-"name": &"idle",
-"speed": 9.0
+"name": &"Idle",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7o0as"]
-size = Vector2(14, 12)
+size = Vector2(14, 15)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ka5s"]
-size = Vector2(16, 13)
+size = Vector2(16, 15)
 
 [node name="Bob the Bread" type="CharacterBody2D" unique_id=1475175376]
 script = ExtResource("1_v7vd7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=140008700]
 sprite_frames = SubResource("SpriteFrames_7o0as")
-animation = &"idle"
-frame_progress = 0.24362276
+animation = &"Idle"
+autoplay = "Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1405975659]
+position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_7o0as")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=650702846]
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1318640893]
-position = Vector2(0, -0.5)
+position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_1ka5s")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

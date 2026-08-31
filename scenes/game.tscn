@@ -3,7 +3,9 @@
 [ext_resource type="Script" uid="uid://b05mo5csjs046" path="res://scripts/jammy.gd" id="1_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://b4n6kgfb1gfja" path="res://scenes/spoon.tscn" id="1_p57ef"]
 [ext_resource type="Texture2D" uid="uid://dkpeawpw4tdu0" path="res://assets/characters/Jammy/Jammyidle.png" id="1_uwrxv"]
+[ext_resource type="Texture2D" uid="uid://bixpiw3w24db5" path="res://assets/characters/Jammy/JammyJump.png" id="2_kvuet"]
 [ext_resource type="Texture2D" uid="uid://bj4m7m8dtwgpk" path="res://assets/characters/Jammy/Jammy run.png" id="2_yqjtg"]
+[ext_resource type="Texture2D" uid="uid://b46ewdi28fn4a" path="res://assets/characters/Jammy/JammySuperJump.png" id="3_trtic"]
 [ext_resource type="Texture2D" uid="uid://st0f54wnaopu" path="res://assets/Block Design/Block Design.png" id="4_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://br6ikhxdgsijy" path="res://scenes/butterrectangle.tscn" id="5_iywne"]
 [ext_resource type="Texture2D" uid="uid://ddn5vod0mk4im" path="res://assets/obstacles/Door.png" id="5_vtaks"]
@@ -12,6 +14,46 @@
 [ext_resource type="PackedScene" uid="uid://ub3i5fwy8m34" path="res://scenes/billy_butter.tscn" id="9_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://bqib28gs1wtop" path="res://scenes/butter_capitan.tscn" id="11_kvpfn"]
 [ext_resource type="PackedScene" uid="uid://bxd23j6qcctrm" path="res://scenes/bob_the_bread.tscn" id="12_dinhu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ir15t"]
+atlas = ExtResource("2_kvuet")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ca42v"]
+atlas = ExtResource("2_kvuet")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rysoc"]
+atlas = ExtResource("2_kvuet")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ssvqc"]
+atlas = ExtResource("2_kvuet")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_264po"]
+atlas = ExtResource("2_kvuet")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1kice"]
+atlas = ExtResource("3_trtic")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5newe"]
+atlas = ExtResource("3_trtic")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_37s47"]
+atlas = ExtResource("3_trtic")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bt5mj"]
+atlas = ExtResource("3_trtic")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e1j6l"]
+atlas = ExtResource("3_trtic")
+region = Rect2(0, 32, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yqjtg"]
 atlas = ExtResource("1_uwrxv")
@@ -67,6 +109,46 @@ region = Rect2(16, 16, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7o0as"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ir15t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ca42v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rysoc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ssvqc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_264po")
+}],
+"loop": 0,
+"name": &"Jump",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1kice")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5newe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_37s47")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bt5mj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e1j6l")
+}],
+"loop": 0,
+"name": &"SuperJump",
+"speed": 12.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_yqjtg")
@@ -159,9 +241,10 @@ script = ExtResource("1_lnu2h")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Jammy" unique_id=460006229]
 sprite_frames = SubResource("SpriteFrames_7o0as")
-animation = &"idle"
+animation = &"SuperJump"
 autoplay = "idle"
-frame_progress = 0.5529822
+frame = 4
+frame_progress = 1.0
 
 [node name="Hitbox" type="CollisionShape2D" parent="Jammy" unique_id=790115184]
 position = Vector2(-0.5, 0)

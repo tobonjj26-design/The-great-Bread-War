@@ -59,8 +59,10 @@ func _physics_process(delta: float) -> void:
 		if wants_super_jump:
 			velocity.y = SUPER_JUMP_VELOCITY
 			super_jump_cooldown_timer = SUPER_JUMP_COOLDOWN
+			sprite.play("SuperJump")
 		else:
 			velocity.y = JUMP_VELOCITY
+			sprite.play("Jump")
 		jump_buffer_timer = 0
 		coyote_timer = 0
 		wants_super_jump = false
@@ -84,8 +86,11 @@ func _physics_process(delta: float) -> void:
 			velocity.y = JUMP_VELOCITY * 0.6
 
 	# --- Animaciones ---
-	if direction != 0:
-		sprite.play("run")
+	if is_on_floor():
+		if direction != 0:
+			sprite.play("run")
+			sprite.flip_h = direction < 0
+		else:
+			sprite.play("idle")
+	elif direction != 0:
 		sprite.flip_h = direction < 0
-	else:
-		sprite.play("idle")
