@@ -85,7 +85,7 @@ script = ExtResource("1_bux61")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=535632322]
 sprite_frames = SubResource("SpriteFrames_7o0as")
 animation = &"Run"
-frame_progress = 0.3438292
+frame_progress = 0.7219754
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1891328165]
 position = Vector2(0, 0.5)
@@ -99,4 +99,4 @@ shape = SubResource("RectangleShape2D_k5a27")
 [node name="WallRayCast" type="RayCast2D" parent="." unique_id=2053056847]
 target_position = Vector2(0, 0)
 
-[connection signal="body_exited" from="HurtArea" to="." method="_on_hurt_area_body_exited"]
+[connection signal="body_entered" from="HurtArea" to="." method="_on_hurt_area_body_entered"]
