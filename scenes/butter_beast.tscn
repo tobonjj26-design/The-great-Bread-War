@@ -85,13 +85,14 @@ script = ExtResource("1_bux61")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=535632322]
 sprite_frames = SubResource("SpriteFrames_7o0as")
 animation = &"Run"
-frame_progress = 0.7219754
+frame_progress = 0.14119577
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1891328165]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_1ka5s")
 
 [node name="HurtArea" type="Area2D" parent="." unique_id=1040098703]
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtArea" unique_id=725504]
 shape = SubResource("RectangleShape2D_k5a27")
