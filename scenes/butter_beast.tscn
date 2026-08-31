@@ -70,7 +70,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"Run",
-"speed": 5.0
+"speed": 10.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ka5s"]
@@ -85,7 +85,7 @@ script = ExtResource("1_bux61")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=535632322]
 sprite_frames = SubResource("SpriteFrames_7o0as")
 animation = &"Run"
-frame_progress = 0.14119577
+frame_progress = 0.65269476
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1891328165]
 position = Vector2(0, 0.5)

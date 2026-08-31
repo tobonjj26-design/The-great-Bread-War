@@ -49,6 +49,17 @@ func _physics_process(delta: float) -> void:
 	else:
 		last_safe_position = global_position
 
+	if invincible_timer > 0:
+		invincible_timer -= delta
+		sprite.modulate.a = 0.4 if fmod(invincible_timer, 0.2) < 0.1 else 1.0
+		collision_layer = 0
+		$HurtArea.monitoring = false
+		if invincible_timer <= 0:
+			collision_layer = 1
+			$HurtArea.monitoring = true
+	else:
+		sprite.modulate.a = 1.0
+
 	# --- Red de seguridad: si cae demasiado lejos de la última posición segura, lo devuelve ahí ---
 	if global_position.y > last_safe_position.y + FALL_RESCUE_DISTANCE:
 		global_position = last_safe_position
@@ -60,12 +71,6 @@ func _physics_process(delta: float) -> void:
 		rescue_freeze_timer -= delta
 		move_and_slide()
 		return
-
-	if invincible_timer > 0:
-		invincible_timer -= delta
-		sprite.modulate.a = 0.4 if fmod(invincible_timer, 0.2) < 0.1 else 1.0
-	else:
-		sprite.modulate.a = 1.0
 
 	if knockback_timer > 0:
 		knockback_timer -= delta

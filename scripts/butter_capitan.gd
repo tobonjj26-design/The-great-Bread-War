@@ -32,6 +32,11 @@ func _physics_process(delta: float) -> void:
 	if invincible_timer > 0:
 		invincible_timer -= delta
 		sprite.modulate.a = 0.4 if fmod(invincible_timer, 0.2) < 0.1 else 1.0
+		collision_layer = 0
+		$HurtArea.monitoring = false
+		if invincible_timer <= 0:
+			collision_layer = 1
+			$HurtArea.monitoring = true
 	else:
 		sprite.modulate.a = 1.0
 

@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 const SPEED = 140.0
-const WAIT_TIME = 3.0
+const WAIT_TIME = 1.5
 
 var direction = 1
 var wait_timer = 0.0
