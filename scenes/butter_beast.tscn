@@ -1,0 +1,102 @@
+[gd_scene format=3 uid="uid://bdtbo6fa6kyqk"]
+
+[ext_resource type="Script" uid="uid://dmti2fjjqyo0y" path="res://scenes/butter_beast.gd" id="1_bux61"]
+[ext_resource type="Texture2D" uid="uid://bvoe1a0sbkfaq" path="res://assets/characters/Butter Beast/Butter Beast.png" id="1_q2jcn"]
+[ext_resource type="Texture2D" uid="uid://dh7rllp5gyiin" path="res://assets/characters/Butter Beast/Butter BeastRun.png" id="2_bux61"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2tjhi"]
+atlas = ExtResource("1_q2jcn")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t6ryo"]
+atlas = ExtResource("1_q2jcn")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q5fwh"]
+atlas = ExtResource("1_q2jcn")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fl52n"]
+atlas = ExtResource("1_q2jcn")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_suqog"]
+atlas = ExtResource("2_bux61")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r2sxd"]
+atlas = ExtResource("2_bux61")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sao7l"]
+atlas = ExtResource("2_bux61")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kdnq5"]
+atlas = ExtResource("2_bux61")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7o0as"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2tjhi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t6ryo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q5fwh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fl52n")
+}],
+"loop": 1,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_suqog")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r2sxd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sao7l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kdnq5")
+}],
+"loop": 1,
+"name": &"Run",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ka5s"]
+size = Vector2(28, 27)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k5a27"]
+size = Vector2(30, 28)
+
+[node name="Butter Beast" type="CharacterBody2D" unique_id=1705535159 groups=["enemy"]]
+script = ExtResource("1_bux61")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=535632322]
+sprite_frames = SubResource("SpriteFrames_7o0as")
+animation = &"Run"
+frame_progress = 0.3438292
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1891328165]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_1ka5s")
+
+[node name="HurtArea" type="Area2D" parent="." unique_id=1040098703]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtArea" unique_id=725504]
+shape = SubResource("RectangleShape2D_k5a27")
+
+[node name="WallRayCast" type="RayCast2D" parent="." unique_id=2053056847]
+target_position = Vector2(0, 0)
+
+[connection signal="body_exited" from="HurtArea" to="." method="_on_hurt_area_body_exited"]

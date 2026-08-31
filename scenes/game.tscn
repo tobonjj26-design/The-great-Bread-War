@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://ub3i5fwy8m34" path="res://scenes/billy_butter.tscn" id="9_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://bqib28gs1wtop" path="res://scenes/butter_capitan.tscn" id="11_kvpfn"]
 [ext_resource type="PackedScene" uid="uid://bxd23j6qcctrm" path="res://scenes/bob_the_bread.tscn" id="12_dinhu"]
+[ext_resource type="PackedScene" uid="uid://bdtbo6fa6kyqk" path="res://scenes/butter_beast.tscn" id="15_ir15t"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ir15t"]
 atlas = ExtResource("2_kvuet")
@@ -467,3 +468,6 @@ position = Vector2(782, -119)
 
 [node name="Bob the Bread" parent="." unique_id=1475175376 instance=ExtResource("12_dinhu")]
 position = Vector2(1016, -118)
+
+[node name="Butter Beast" parent="." unique_id=1705535159 instance=ExtResource("15_ir15t")]
+position = Vector2(80, 1)
