@@ -46,9 +46,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_oex7u")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"Death",
-"speed": 5.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -71,7 +71,8 @@ script = ExtResource("1_kvxlw")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1355571218]
 sprite_frames = SubResource("SpriteFrames_7o0as")
 animation = &"Death"
-frame_progress = 0.96707076
+frame = 4
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1461073356]
 position = Vector2(0, 0.5)
