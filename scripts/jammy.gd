@@ -19,7 +19,10 @@ var wants_super_jump = false
 var super_jump_cooldown_timer = 0.0
 
 @onready var sprite = $AnimatedSprite2D
-@onready var camera = $Camera2D
+
+func _ready() -> void:
+	if CheckpointManager.has_checkpoint:
+		global_position = CheckpointManager.checkpoint_position
 
 func _physics_process(delta: float) -> void:
 	if global_position.y > DEATH_Y:
@@ -84,9 +87,8 @@ func _physics_process(delta: float) -> void:
 		if collider != null and collider.is_in_group("enemy") and collision.get_normal().y < -0.5:
 			if collider.has_method("stomp"):
 				collider.stomp()
-			velocity.y = JUMP_VELOCITY * 0.85
+			velocity.y = JUMP_VELOCITY * 0.6
 			hitstop(0.12)
-			shake_camera(3.0, 0.15)
 
 	# --- Animaciones ---
 	if is_on_floor():
@@ -102,11 +104,3 @@ func hitstop(duration: float) -> void:
 	Engine.time_scale = 0.02
 	await get_tree().create_timer(duration, true, false, true).timeout
 	Engine.time_scale = 1.0
-
-func shake_camera(strength: float, duration: float) -> void:
-	var timer = get_tree().create_timer(duration, true, false, true)
-	var original_offset = camera.offset
-	while timer.time_left > 0:
-		camera.offset = original_offset + Vector2(randf_range(-strength, strength), randf_range(-strength, strength))
-		await get_tree().create_timer(0.02, true, false, true).timeout
-	camera.offset = original_offset
