@@ -2,6 +2,27 @@
 
 [ext_resource type="Script" uid="uid://uri443jwilki" path="res://scripts/butterrectangle.gd" id="1_kvxlw"]
 [ext_resource type="Texture2D" uid="uid://b7ijxfi0wsbml" path="res://assets/Minions/Butter Rectangle.png" id="1_s8fqt"]
+[ext_resource type="Texture2D" uid="uid://boiucf2vbd76k" path="res://assets/Minions/ButterRectangleDead.png" id="2_0e0wf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4luey"]
+atlas = ExtResource("2_0e0wf")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uxjwn"]
+atlas = ExtResource("2_0e0wf")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lyv05"]
+atlas = ExtResource("2_0e0wf")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rttn4"]
+atlas = ExtResource("2_0e0wf")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oex7u"]
+atlas = ExtResource("2_0e0wf")
+region = Rect2(0, 32, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kvxlw"]
 atlas = ExtResource("1_s8fqt")
@@ -9,6 +30,26 @@ region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7o0as"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4luey")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uxjwn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lyv05")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rttn4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oex7u")
+}],
+"loop": 1,
+"name": &"Death",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_kvxlw")
@@ -29,7 +70,8 @@ script = ExtResource("1_kvxlw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1355571218]
 sprite_frames = SubResource("SpriteFrames_7o0as")
-animation = &"idle"
+animation = &"Death"
+frame_progress = 0.96707076
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1461073356]
 position = Vector2(0, 0.5)

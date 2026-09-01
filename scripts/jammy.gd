@@ -84,6 +84,7 @@ func _physics_process(delta: float) -> void:
 			if collider.has_method("stomp"):
 				collider.stomp()
 			velocity.y = JUMP_VELOCITY * 0.6
+			hitstop(0.12)
 
 	# --- Animaciones ---
 	if is_on_floor():
@@ -94,3 +95,8 @@ func _physics_process(delta: float) -> void:
 			sprite.play("idle")
 	elif direction != 0:
 		sprite.flip_h = direction < 0
+
+func hitstop(duration: float) -> void:
+	Engine.time_scale = 0.02
+	await get_tree().create_timer(duration, true, false, true).timeout
+	Engine.time_scale = 1.0
