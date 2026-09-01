@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bdtbo6fa6kyqk"]
 
-[ext_resource type="Script" uid="uid://dmti2fjjqyo0y" path="res://scenes/butter_beast.gd" id="1_bux61"]
+[ext_resource type="Script" uid="uid://dmti2fjjqyo0y" path="res://scripts/butter_beast.gd" id="1_bux61"]
 [ext_resource type="Texture2D" uid="uid://bvoe1a0sbkfaq" path="res://assets/characters/Butter Beast/Butter Beast.png" id="1_q2jcn"]
 [ext_resource type="Texture2D" uid="uid://dh7rllp5gyiin" path="res://assets/characters/Butter Beast/Butter BeastRun.png" id="2_bux61"]
 

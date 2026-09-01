@@ -73,6 +73,8 @@ func do_summon() -> void:
 
 	get_parent().add_child(enemy)
 	enemy.global_position = global_position + Vector2(20 * facing_direction, 0)
+	facing_direction *= -1
+	sprite.flip_h = facing_direction < 0
 
 func stomp() -> void:
 	if invincible_timer > 0:

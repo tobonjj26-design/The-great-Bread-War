@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://pkqfa4c7ai0q"]
+
+[ext_resource type="Script" uid="uid://oiobox2q3ujv" path="res://scripts/checkpoint.gd" id="1_ywqth"]
+[ext_resource type="Texture2D" uid="uid://c6tu5vkyf14gy" path="res://assets/Block Design/Checkpoint.png" id="2_vsimk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yqsag"]
+atlas = ExtResource("2_vsimk")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c45tw"]
+atlas = ExtResource("2_vsimk")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7o0as"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yqsag")
+}],
+"loop": 1,
+"name": &"Butter Flag",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c45tw")
+}],
+"loop": 1,
+"name": &"Jammy Flag",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7o0as"]
+size = Vector2(9, 15)
+
+[node name="Checkpoint" type="Area2D" unique_id=987200722]
+script = ExtResource("1_ywqth")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=211882798]
+sprite_frames = SubResource("SpriteFrames_7o0as")
+animation = &"Jammy Flag"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=800518562]
+position = Vector2(-3.5, 0.5)
+shape = SubResource("RectangleShape2D_7o0as")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
