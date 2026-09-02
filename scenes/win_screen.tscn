@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bw2kfgpgurm6c"]
 
-[ext_resource type="Texture2D" uid="uid://bf102od5a6iju" path="res://assets/New Piskel.png" id="1_k71pb"]
+[ext_resource type="Texture2D" uid="uid://bf102od5a6iju" path="res://assets/misc/New Piskel.png" id="1_k71pb"]
 
 [node name="win_screen" type="Sprite2D" unique_id=763851659]
 texture = ExtResource("1_k71pb")
