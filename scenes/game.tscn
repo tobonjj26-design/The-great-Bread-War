@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://b2abfo1ae4oqn" path="res://scenes/fork.tscn" id="8_gee14"]
 [ext_resource type="PackedScene" uid="uid://ub3i5fwy8m34" path="res://scenes/billy_butter.tscn" id="9_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://bqib28gs1wtop" path="res://scenes/butter_capitan.tscn" id="11_kvpfn"]
+[ext_resource type="PackedScene" uid="uid://pkqfa4c7ai0q" path="res://scenes/checkpoint.tscn" id="15_ca42v"]
 [ext_resource type="PackedScene" uid="uid://bdtbo6fa6kyqk" path="res://scenes/butter_beast.tscn" id="15_ir15t"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ir15t"]
@@ -479,3 +480,6 @@ position = Vector2(582, -119)
 
 [node name="Butter Capitan" parent="." unique_id=1718793327 instance=ExtResource("11_kvpfn")]
 position = Vector2(782, -119)
+
+[node name="Checkpoint" parent="." unique_id=987200722 instance=ExtResource("15_ca42v")]
+position = Vector2(912, -120)
